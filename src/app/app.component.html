@@ -1,0 +1,15 @@
+<mat-sidenav-container>
+    <mat-sidenav #pokemonList position="end" #sidenav [mode]="side" opened="true" [fixedInViewport]="true" disableClose>
+        <!-- Estamos pasando el pokemon seleccionado hasta lo más hacia la raiz el pokemon seleccionado, usando, nuevamente,
+            un evento enlazado con @Output para comunicar entre hijo y madre el id del pokemon -->
+        <app-pokemon-list [(pokemonData)]="fullPokemonList" (onPokemonSelected)="onPokemonSelect($event)"></app-pokemon-list>
+    </mat-sidenav>
+    <section>
+        <mat-toolbar>
+            <span>Pokedex</span>
+        </mat-toolbar>
+    </section>
+    <section>
+        <app-pokemon-detail [(pokemon)]="selectedPokemon"></app-pokemon-detail>
+    </section>
+</mat-sidenav-container>

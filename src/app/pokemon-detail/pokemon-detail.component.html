@@ -1,0 +1,8 @@
+<!-- ngIf nos permite hacer un if, tal como en javascript, para condicionalmente
+ colocar la tarjeta del pokemon, solo si este existe (o sea, si seleccionaron uno)-->
+<mat-card ng-if="pokemon">
+    <h2>
+        {{pokemon.ename}}
+    </h2>
+    <img id="pokemon_img" src="../../assets/sprites/{{pokemonNumId}}.png">
+</mat-card>

@@ -1,0 +1,5 @@
+<div ng-if="pokemon != {}">
+    <!-- Enlazamos al evento click la función onPokemonClick, 
+        así podemos poner su detalle en el contenido principal -->
+    <span (click)="onPokemonClick()">{{pokemon.ename}}</span>
+</div>
