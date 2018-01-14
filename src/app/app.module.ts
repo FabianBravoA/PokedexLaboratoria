@@ -10,6 +10,8 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
 import { PokemonListItemComponent } from './pokemon-list-item/pokemon-list-item.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatButtonModule} from '@angular/material/button';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 
@@ -26,6 +28,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
+    MatChipsModule,
+    MatButtonModule,
     HttpModule,
     JsonpModule
   ],

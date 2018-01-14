@@ -1,6 +1,6 @@
 <ul>
-    <li *ngFor="let pokemon of pokemonData; let i = index">
-        <!-- Es importante notar acá el uso de i = index, 
+
+    <!-- Es importante notar acá el uso de i = index, 
             hay una restricción de angular para usar el dato pokemon y enlazarlo al componente hijo.
             Siempre debemos usar un elemento en concreto para esto y no uno que venga de un ngFor, por ejemplo,
             para esto entonces le pasamos el pokemonData[i] en vez de pokemon.
@@ -11,6 +11,6 @@
             Fijarse también en la sintaxis del evento, donde $event es el valor que se ingresará como parámetro para comunicar
             el pokemon que se seleccionó, recuerda que estamos usando un EventEmitter de strings, por lo que pasará como parámetro
             será un string-->
-        <app-pokemon-list-item [(pokemon)]="pokemonData[i]" (onPokemonSelected)="onPokemonSelectedOnList($event)"></app-pokemon-list-item>
-    </li>
+    <app-pokemon-list-item *ngFor="let pokemon of pokemonData; let i = index" [(pokemon)]="pokemonData[i]" (onPokemonSelected)="onPokemonSelectedOnList($event)"></app-pokemon-list-item>
+
 </ul>

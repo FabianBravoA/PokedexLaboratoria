@@ -1,5 +1,5 @@
-<div ng-if="pokemon != {}">
+<button mat-raised-button color="primary" *ngIf="pokemon.ename" (click)="onPokemonClick()" class="pokeButton" color="primary">
     <!-- Enlazamos al evento click la función onPokemonClick, 
         así podemos poner su detalle en el contenido principal -->
-    <span (click)="onPokemonClick()">{{pokemon.ename}}</span>
-</div>
+    <span>{{pokemon.ename}}</span>
+</button>

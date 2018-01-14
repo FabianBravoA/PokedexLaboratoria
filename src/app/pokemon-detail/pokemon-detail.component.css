@@ -1,5 +1,4 @@
-#pokemon_img {
-    object-fit: contain;
-    height: 100px;
-    width: 100px;
+.pokeCard {
+    width: 300px;
+    margin: 40px;
 }
