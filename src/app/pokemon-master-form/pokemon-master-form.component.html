@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>Pokemon Master</h2>
+    <form [formGroup]="pokemonMasterForm">
+        <div class="form-group">
+            <label class="center-block">Name : 
+          <input class="form-control" formControlName="name">
+        </label>
+        </div>
+        <div class="form-group">
+            <label class="center-block">Gym : 
+          <input class="form-control" formControlName="gym">
+        </label>
+        </div>
+        <div formGroupName="pokemon" class="well well-lg">
+            <h4>Init Pokemon</h4>
+            <div class="form-group">
+                <label class="center-block">ID:
+              <input class="form-control" formControlName="id">
+            </label>
+            </div>
+            <div class="form-group">
+                <label class="center-block">Name:
+                <input class="form-control" formControlName="name">
+              </label>
+            </div>
+            <div class="form-group">
+                <label class="center-block">Type:
+                  <input class="form-control" formControlName="type">
+                </label>
+            </div>
+        </div>
+    </form>
+
+    <p>{{pokemonMasterForm.value | json}}</p>
+    <p>{{pokemonMasterForm.status | json}}</p>
+    <p>{{pokemonMasterForm.get("name").untouch}}</p>
+    <p>{{pokemonMasterForm.get("pokemon.name").untouch}}</p>
+</div>

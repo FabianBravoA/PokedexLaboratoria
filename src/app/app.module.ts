@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { PokemonMasterFormComponent } from './pokemon-master-form/pokemon-master-form.component';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
     AppComponent,
     PokemonListComponent,
     PokemonDetailComponent,
-    PokemonListItemComponent
+    PokemonListItemComponent,
+    PokemonMasterFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
     MatChipsModule,
     MatButtonModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
