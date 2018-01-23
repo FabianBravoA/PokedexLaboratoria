@@ -15,6 +15,11 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { PokemonMasterFormComponent } from './pokemon-master-form/pokemon-master-form.component';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+
+import {AuthService} from './auth.service';
 
 
 @NgModule({
@@ -35,9 +40,11 @@ import { PokemonMasterFormComponent } from './pokemon-master-form/pokemon-master
     MatButtonModule,
     HttpModule,
     JsonpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
