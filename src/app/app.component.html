@@ -1,12 +1,18 @@
 <mat-sidenav-container>
-    <mat-sidenav position="end" #sidenav mode="side" opened="true" [fixedInViewport]="true" disableClose>
+    <mat-toolbar color="primary">
+        <span>Pokedex de {{ (authService.user | async)?.email }}</span>
+        <input type="text" class="form-control" [(ngModel)]="email" placeholder="email">
+        <input type="password" class="form-control" [(ngModel)]="password" placeholder="password">
+        <button (click)="signup()" [disabled]="!email || !password">Signup</button>
+        <button (click)="login()" [disabled]="!email || !password">Login</button>
+        <button (click)="logout()">Logout</button>
+    </mat-toolbar>
+
+    <mat-sidenav *ngIf="(authService.user | async)" position="end" #sidenav mode="side" opened="true" [fixedInViewport]="true" disableClose>
         <!-- Estamos pasando el pokemon seleccionado hasta lo más hacia la raiz el pokemon seleccionado, usando, nuevamente,
             un evento enlazado con @Output para comunicar entre hijo y madre el id del pokemon -->
         <app-pokemon-list [(pokemonData)]="fullPokemonList" (onPokemonSelected)="onPokemonSelect($event)"></app-pokemon-list>
     </mat-sidenav>
-    <mat-toolbar color="primary">
-        <span>Pokedex</span>
-    </mat-toolbar>
-    <app-pokemon-detail [(pokemon)]="selectedPokemon.id"></app-pokemon-detail>
-    <app-pokemon-master-form></app-pokemon-master-form>
+    <app-pokemon-detail *ngIf="(authService.user | async)" [(pokemon)]="selectedPokemon.id"></app-pokemon-detail>
+    <app-pokemon-master-form *ngIf="(authService.user | async)"></app-pokemon-master-form>
 </mat-sidenav-container>

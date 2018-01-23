@@ -18,6 +18,7 @@ import { PokemonMasterFormComponent } from './pokemon-master-form/pokemon-master
 import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
 import {AngularFireAuthModule} from 'angularfire2/auth';
+import {FormsModule} from '@angular/forms';
 
 import {AuthService} from './auth.service';
 
@@ -42,7 +43,8 @@ import {AuthService} from './auth.service';
     JsonpModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

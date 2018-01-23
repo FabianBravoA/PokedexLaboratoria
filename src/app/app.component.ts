@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { AuthService } from './auth.service';
 
 
 @Component({
@@ -12,8 +13,25 @@ export class AppComponent {
   selectedPokemon:any = {}; //Partimos con un pokemon seleccionado vacio, acá después irá el json del seleccionado
   title = 'Pokemon - Pokedex';
 
-  constructor(private http: Http){
+  email:string;
+  password:string;
 
+  constructor(private http: Http, public authService:AuthService){
+
+  }
+
+  signup(){
+    this.authService.signup(this.email, this.password);
+    this.email = this.password = '';
+  }
+
+  login(){
+    this.authService.login(this.email, this.password);
+    this.email = this.password = '';
+  }
+
+  logout(){
+    this.authService.logout();
   }
 
   ngOnInit() {
