@@ -19,8 +19,17 @@ import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {FormsModule} from '@angular/forms';
+import {RouterModule, Routes} from '@angular/router';
 
 import {AuthService} from './auth.service';
+import { PokedexComponent } from './pokedex/pokedex.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+const appRoutes:Routes=[
+  {path: 'pokedex', component: PokedexComponent},
+  {path: 'pokemonMaster', component: PokemonMasterFormComponent},
+  {path: '**', component:PageNotFoundComponent}
+];
 
 
 @NgModule({
@@ -29,7 +38,9 @@ import {AuthService} from './auth.service';
     PokemonListComponent,
     PokemonDetailComponent,
     PokemonListItemComponent,
-    PokemonMasterFormComponent
+    PokemonMasterFormComponent,
+    PokedexComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +55,12 @@ import {AuthService} from './auth.service';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      {
+        enableTracing:true
+      })
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
