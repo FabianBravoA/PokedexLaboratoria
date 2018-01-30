@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { AuthService } from './auth.service';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 
 @Component({
@@ -16,8 +19,8 @@ export class AppComponent {
   email:string;
   password:string;
 
-  constructor(private http: Http, public authService:AuthService){
-
+  constructor(private http: Http, public authService:AuthService, route:ActivatedRoute){
+    const url :Observable<string> = route.url.map(segments => segments.join(''));
   }
 
   signup(){

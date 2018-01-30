@@ -1,11 +1,18 @@
 <mat-sidenav-container>
     <mat-toolbar color="primary">
         <span>Pokedex de {{ (authService.user | async)?.email }}</span>
+    </mat-toolbar>
+    <mat-toolbar color="primary">
         <input type="text" class="form-control" [(ngModel)]="email" placeholder="email">
         <input type="password" class="form-control" [(ngModel)]="password" placeholder="password">
         <button (click)="signup()" [disabled]="!email || !password">Signup</button>
         <button (click)="login()" [disabled]="!email || !password">Login</button>
         <button (click)="logout()">Logout</button>
+    </mat-toolbar>
+    <mat-toolbar color=primary>
+        <a routerLink="/pokedex" routerLinkActive="active">Pokedex</a><span>   </span>
+        <a routerLink="/pokemonMaster" routerLinkActive="active">Pokemon Master</a><span>   </span>
+        <h2>{{url}}</h2>
     </mat-toolbar>
 
     <router-outlet>
