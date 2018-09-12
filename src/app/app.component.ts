@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { AuthService } from './auth.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +19,7 @@ export class AppComponent {
   password:string;
 
   constructor(private http: Http, public authService:AuthService, route:ActivatedRoute){
-    const url :Observable<string> = route.url.map(segments => segments.join(''));
+    const url :Observable<string> = route.url.pipe(map(segments => segments.join('')));
   }
 
   signup(){
